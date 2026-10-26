@@ -1,16 +1,51 @@
-# React + Vite
+# Dailyquo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple web application focused on daily quotes and inspiration.
 
-Currently, two official plugins are available:
+Dailyquo is a personal project built to practice React and modern frontend development. It will evolve incrementally as new features are designed and implemented.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Getting Started
 
-## React Compiler
+### Prerequisites
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Node.js
+- pnpm
 
-## Expanding the ESLint configuration
+### Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Clone the repository:
+
+```bash
+git clone https://github.com/marioswc/dailyquo.git
+cd dailyquo
+```
+
+Install dependencies:
+
+```bash
+pnpm install
+```
+
+Start the development server:
+
+```bash
+pnpm dev
+```
+
+### Build for Production
+
+```bash
+pnpm run build
+```
+
+To preview the production build locally:
+
+```bash
+pnpm run preview
+```
+
+## Project Status
+
+**In development.**
+
+The initial project setup is complete. The core features and MVP scope will be defined before implementation begins.
