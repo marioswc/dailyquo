@@ -1,25 +1,31 @@
 @import "tailwindcss";
 @import '@fontsource-variable/inter';
 
-:root {
-  --text: rgb(17, 24, 39);
-  --text-muted: rgb(107, 114, 128);
-  --bg: rgb(255, 255, 255);
-  --line: rgb(229, 231, 235);
-  --inter: 'Inter Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@theme {
+  --color-primary: rgb(59, 130, 246);
+  --color-text: rgb(17, 24, 39);
+  --color-text-muted: rgb(107, 114, 128);
+  --color-bg: rgb(255, 255, 255);
+  --color-line: rgb(229, 231, 235);
+  --font-inter: 'Inter Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-body {
-  font-family: var(--inter);
-}
+@layer base {
+  :root {
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  color: var(--text);
+  body {
+    font-family: var(--font-inter);
+    background-color: var(--color-bg);
+    color: var(--color-text-muted);
+  }
+
+  h1, h2, h3, h4{
+    font-weight: 600;
+    color: var(--color-text);
+  }
 }
