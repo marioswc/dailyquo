@@ -15,7 +15,7 @@ export async function getQuotes() {
         }
         const data = await resp.json();
         // debugging
-        console.log({currentYear, totalQuotes, API_URL});
+        // console.log({currentYear, totalQuotes, API_URL});
         return data.quotes;
 
     }
