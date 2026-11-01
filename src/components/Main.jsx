@@ -1,9 +1,16 @@
 import { useCurrentDate } from "../hooks/useCurrentDate";
 import { useQuotes } from "../hooks/useQuotes";
+import { useClipboard } from "../hooks/useClipboard";
 
 function Main() {
+  // get the current date and the quote list
   const { indexDays, today } = useCurrentDate();
   const quoteList = useQuotes();
+  const { copied, copyToClipboard } = useClipboard();
+
+  // define the quote and author based on the indexDays
+  const quote = quoteList[indexDays]?.quote ?? "Loading...";
+  const author = quoteList[indexDays]?.author ?? "Loading...";
   
   return (
     <>
@@ -20,17 +27,18 @@ function Main() {
                 “
               </span>
               <h1 className=" italic font-normal text-4xl sm:text-6xl lg:text-7xl leading-[1.08] tracking-tight text-balance">
-                {quoteList[indexDays]?.quote ?? "Loading..."}
+                {quote}
               </h1>
             </div>
             <p className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] font-medium">
               <span aria-hidden="true" className="h-px w-8 bg-primary" />
-              {quoteList[indexDays]?.author ?? "Loading..."}
+              {author}
             </p>
             <button
+              onClick={() => copyToClipboard(`${quote} - ${author}`)}
               aria-live="polite"
               className="text-sm bg-bg border border-line text-text-muted px-5 py-2 rounded-full cursor-pointer hover:border-primary hover:text-primary transition-all duration-300">
-              Copy
+              {copied ? "Copied!" : "Copy Quote"}
             </button>
           </article>
         </section>

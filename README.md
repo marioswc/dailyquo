@@ -66,5 +66,5 @@ pnpm run preview
 - [x] Semantic layout and responsive editorial typography
 - [x] Leap-year aware API service (`services/quotes.js`)
 - [x] Custom hooks for date tracking and midnight auto-update (`useCurrentDate`, `useQuotes`)
-- [ ] **In Progress:** Copy-to-clipboard functionality for the quote button
-- [ ] Client-side caching with `localStorage` to avoid redundant API requests and enable instant loads
+- [x] Copy-to-clipboard functionality for the quote button
+- [ ] **In Progress:** Client-side caching with `localStorage` to avoid redundant API requests and enable instant loads
