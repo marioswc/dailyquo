@@ -25,7 +25,7 @@ export function useCurrentDate() {
     );
     const timeUntilMidNight = midnight - currentDate.getTime();
     const timer = setTimeout(() => {
-      console.log("Updating current date at midnight", timeUntilMidNight);
+      // console.log("Updating current date at midnight", timeUntilMidNight);
       setCurrentDate(new Date());
     }, timeUntilMidNight);
 
