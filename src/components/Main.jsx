@@ -1,14 +1,17 @@
-import { useState, useEffect } from "react";
-import { getQuotes } from "../utils/quotes";
+import { useCurrentDate } from "../hooks/useCurrentDate";
+import { useQuotes } from "../hooks/useQuotes";
 
 function Main() {
+  const { indexDays, today } = useCurrentDate();
+  const quoteList = useQuotes();
+  
   return (
     <>
       <main className="grid place-items-center px-2">
         <section className="flex items-center">
           <article className="max-w-4xl w-full mx-auto flex flex-col items-start gap-8 px-6 py-16 motion-safe:animate-fade-up">
             <time className="text-xs uppercase tracking-[0.2em] text-text-muted">
-              Saturday 31, October 2026
+              {today ?? "Loading..."}
             </time>
             <div>
               <span
@@ -17,12 +20,12 @@ function Main() {
                 “
               </span>
               <h1 className=" italic font-normal text-4xl sm:text-6xl lg:text-7xl leading-[1.08] tracking-tight text-balance">
-                The only way to do great work is to love what you do.
+                {quoteList[indexDays]?.quote ?? "Loading..."}
               </h1>
             </div>
             <p className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] font-medium">
               <span aria-hidden="true" className="h-px w-8 bg-primary" />
-              Rumi 
+              {quoteList[indexDays]?.author ?? "Loading..."}
             </p>
             <button
               aria-live="polite"
