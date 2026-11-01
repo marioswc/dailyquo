@@ -1,4 +1,4 @@
-const currentYear = new Date().getUTCFullYear();
+const currentYear = new Date().getFullYear();
 const totalQuotes = leapYear(currentYear) ? 366 : 365;
 
 function leapYear(year) {
@@ -21,6 +21,5 @@ export async function getQuotes() {
     }
     catch (error) {
         console.error(error);
-        throw error;
     }
 }
