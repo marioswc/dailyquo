@@ -4,6 +4,8 @@ A minimalist web application that delivers a single inspirational quote for each
 
 Built to practice modern React patterns—including custom hooks, state management, and clean separation of concerns—while focusing on a distraction-free editorial interface.
 
+<img src="./docs/img/preview.png" alt="DailyQuo Preview" width="400" />
+
 ## Features
 
 - **Daily Quote Mapping:** Calculates the current day of the year (`0–364` or `0–365` on leap years) to display a consistent quote throughout the day.
