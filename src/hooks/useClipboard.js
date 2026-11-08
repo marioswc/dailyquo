@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export function useClipboard() {
     const [copied, setCopied] = useState(false);
+    const timerRef = useRef(null);
 
     const copyToClipboard = (text) => {
         navigator.clipboard.writeText(text).then(() => {
             setCopied(true);
-            setTimeout(() => setCopied(false), 2000); // Reset after 2 seconds
+            if (timerRef.current) {
+                clearTimeout(timerRef.current);
+            }
+            timerRef.current = setTimeout(() => setCopied(false), 2000);
         }, (err) => {
             console.error('Could not copy text: ', err);
         });
