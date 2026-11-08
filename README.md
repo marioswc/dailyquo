@@ -2,16 +2,20 @@
 
 A minimalist web application that delivers a single inspirational quote for each day of the year.
 
-Built to practice modern React patterns—including custom hooks, state management, and clean separation of concerns—while focusing on a distraction-free editorial interface.
+Built to practice modern React patterns—including custom hooks, lazy state initialization, `useRef` timer management, `localStorage` persistence, and clean separation of concerns—while focusing on a distraction-free editorial interface.
 
-<img src="./docs/img/preview.png" alt="DailyQuo Preview" width="400" />
+<div align="center">
+  <img src="./docs/img/preview.png" alt="DailyQuo Preview" width="600" />
+</div>
 
 ## Features
 
 - **Daily Quote Mapping:** Calculates the current day of the year (`0–364` or `0–365` on leap years) to display a consistent quote throughout the day.
 - **Automatic Midnight Rollover:** Updates the date and transitions to the next day's quote automatically at `00:00` local time without requiring a page reload.
 - **Leap-Year Aware Fetching:** Dynamically requests `365` or `366` quotes from the [DummyJSON Quotes API](https://dummyjson.com/docs/quotes) depending on the current year.
-- **Modular React Architecture:** Separates UI components (`Main`, `Header`, `Footer`), custom hooks (`useCurrentDate`, `useQuotes`), and API services (`quotes.js`).
+- **Client-Side Caching (`localStorage`):** Persists the yearly quote list in `localStorage` using lazy `useState` initialization for instant loads and zero redundant API requests.
+- **Copy to Clipboard (`useRef`):** Copies the daily quote and author with visual feedback, using `useRef` to track and clear active `setTimeout` timers on repeated clicks.
+- **Modular React Architecture:** Separates UI components (`Main`, `Header`, `Footer`), custom hooks (`useCurrentDate`, `useQuotes`, `useClipboard`), and API services (`quotes.js`).
 
 ## Tech Stack
 
@@ -25,7 +29,7 @@ Built to practice modern React patterns—including custom hooks, state manageme
 src/
 ├── assets/          # Static assets and branding
 ├── components/      # UI components (Header, Main, Footer)
-├── hooks/           # Custom React hooks (useCurrentDate, useQuotes)
+├── hooks/           # Custom React hooks (useCurrentDate, useQuotes, useClipboard)
 └── services/        # External API integration (quotes.js)
 ```
 
@@ -63,10 +67,10 @@ pnpm run preview
 
 ## Roadmap & Status
 
-**Status:** Active Development 🚧
+**Status:** Completed ✅
 
-- [x] Semantic layout and responsive editorial typography
+- [x] Semantic layout, SEO metadata, and responsive editorial typography
 - [x] Leap-year aware API service (`services/quotes.js`)
 - [x] Custom hooks for date tracking and midnight auto-update (`useCurrentDate`, `useQuotes`)
-- [x] Copy-to-clipboard functionality for the quote button
-- [ ] **In Progress:** Client-side caching with `localStorage` to avoid redundant API requests and enable instant loads
+- [x] Copy-to-clipboard functionality with `useRef` timer management (`useClipboard`)
+- [x] Client-side caching with `localStorage` to avoid redundant API requests and enable instant loads
